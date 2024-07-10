@@ -1,12 +1,12 @@
 
-<div class="container">
+<form ngForm #formProd="ngForm" class="container">
   <div class="row">
     <div class="col-12">
       <p>{{title}}</p>
     </div>
     <div class="col-6">
       <input #nombre="ngModel" type="text" class="form-control" id="nombre" name="nombre" 
-        placeholder="Category nombre"
+        placeholder="Categoria nombre"
         [(ngModel)]="toUpdateCategory.nombre" 
         [ngClass]="{ 
           'is-invalid': nombre.invalid && nombre.touched,
@@ -17,7 +17,7 @@
     </div>
     <div class="col-6">
       <input #descripcion="ngModel" type="text" class="form-control" id="descripcion" name="descripcion" 
-        placeholder="Category descripcion"
+        placeholder="Categoria descripcion"
         [(ngModel)]="toUpdateCategory.descripcion" 
         [ngClass]="{ 
           'is-invalid': descripcion.invalid && descripcion.touched,
@@ -30,11 +30,12 @@
       <button
         type="button"
         (click)="addEdit()"
-        class="btn btn-primary d-flex align-items-center">
+        class="btn btn-primary d-flex align-items-center"
+        [disabled]="!formProd.form.valid">
         <i class="fa-solid fa-pencil white me-2"></i>
         <p class="mb-0"> {{title}} </p>
       </button>
     </div>
   </div>
-</div>
+</form>
 

@@ -1,12 +1,11 @@
-
-<div class="container">
+<form ngForm #formProd="ngForm" class="container">
   <div class="row">
     <div class="col-12">
       <p>{{title}}</p>
     </div>
     <div class="col-6">
       <input #nombre="ngModel" type="text" class="form-control" id="nombre" name="nombre" 
-        placeholder="Product nombre"
+        placeholder="Producto nombre"
         [(ngModel)]="toUpdateProduct.nombre" 
         [ngClass]="{ 
           'is-invalid': nombre.invalid && nombre.touched,
@@ -17,7 +16,7 @@
     </div>
     <div class="col-6">
       <input #descripcion="ngModel" type="text" class="form-control" id="descripcion" name="descripcion" 
-        placeholder="Product descripcion"
+        placeholder="Producto descripcion"
         [(ngModel)]="toUpdateProduct.descripcion" 
         [ngClass]="{ 
           'is-invalid': descripcion.invalid && descripcion.touched,
@@ -28,7 +27,7 @@
     </div>
     <div class="col-6">
       <input #precio="ngModel" type="number" class="form-control" id="precio" name="precio" 
-        placeholder="Product precio"
+        placeholder="Producto precio"
         [(ngModel)]="toUpdateProduct.precio" 
         [ngClass]="{ 
           'is-invalid': precio.invalid && precio.touched,
@@ -39,7 +38,7 @@
     </div>
     <div class="col-6">
       <input #cantidad_en_stock="ngModel" type="number" class="form-control" id="cantidad_en_stock" name="cantidad_en_stock" 
-        placeholder="Product cantidad_en_stock"
+        placeholder="Producto cantidad"
         [(ngModel)]="toUpdateProduct.cantidad_en_stock" 
         [ngClass]="{ 
           'is-invalid': cantidad_en_stock.invalid && cantidad_en_stock.touched,
@@ -49,7 +48,7 @@
       />
     </div>
     <div class="col-6">
-      <select #categoria="ngModel" class="form-control" id="categoria" name="categoria" 
+      <select ngModel #categoria="ngModel" class="form-control" id="categoria" name="categoria" 
         placeholder="Categoria"
         [(ngModel)]="toUpdateProduct.categoria" 
         [ngClass]="{ 
@@ -57,7 +56,7 @@
           'is-valid': categoria.valid && categoria.touched
         }" 
         required>
-        <option value="" disabled selected>Select Category</option>
+        <option value="" disabled>Select Category</option>
         <option *ngFor="let categoria of categories" [value]="categoria.id">{{ categoria.nombre }}</option>
       </select>
     </div>
@@ -65,11 +64,11 @@
       <button
         type="button"
         (click)="addEdit()"
-        class="btn btn-primary d-flex align-items-center">
+        class="btn btn-primary d-flex align-items-center"
+        [disabled]="!formProd.form.valid">
         <i class="fa-solid fa-pencil white me-2"></i>
         <p class="mb-0"> {{title}} </p>
       </button>
     </div>
   </div>
-</div>
-
+</form>

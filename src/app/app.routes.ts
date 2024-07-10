@@ -84,19 +84,6 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'games',
-        component: GamesComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'games',
-          showInSidebar: true
-        }
-      },
-      {
         path: 'categories',
         component: CategoriesComponent,
         data: { 
@@ -105,7 +92,7 @@ export const routes: Routes = [
             IRoleType.superAdmin,
             IRoleType.user,
           ],
-          name: 'categories',
+          name: 'categorias',
           showInSidebar: true
         }
       },
@@ -118,7 +105,7 @@ export const routes: Routes = [
             IRoleType.superAdmin,
             IRoleType.user,
           ],
-          name: 'products',
+          name: 'productos',
           showInSidebar: true
         }
       }

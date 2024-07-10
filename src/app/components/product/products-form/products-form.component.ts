@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { IProduct, ICategory } from '../../../interfaces';
-import { CategoryService } from '../../../services/category.service'; 
+import { CategoryService } from '../../../services/category.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -20,7 +20,7 @@ export class ProductsFormComponent implements OnInit {
   @Output() callParentEvent: EventEmitter<IProduct> = new EventEmitter<IProduct>();
   categories: ICategory[] = [];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -34,6 +34,7 @@ export class ProductsFormComponent implements OnInit {
     this.categoryService.getAll().subscribe(
       (data: ICategory[]) => {
         this.categories = data;
+        this.cdr.detectChanges();
       },
       (error: any) => {
         console.error('Error loading categories:', error);

@@ -3,14 +3,14 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Price</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Category</th>
-        <th scope="col">Created At</th>
-        <th scope="col">Updated At</th>
-        <th *ngIf="isAdmin()" scope="col">Actions</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Creado en</th>
+        <th scope="col">Actualizado en</th>
+        <th *ngIf="isAdmin()" scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -43,7 +43,7 @@
 <app-modal #detailModal>
   <app-products-form
   (callParentEvent)="onFormEventCalled($event)"
-  [title]="'Update Product'"
+  [title]="'Actualizar producto'"
   [toUpdateProduct]="selectedItem"
   />
 </app-modal>
